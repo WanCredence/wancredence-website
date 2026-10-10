@@ -1,0 +1,13 @@
+# WanCredence - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://wancredence.com/sitemap.xml
+
+# Disallow private/admin paths (none in static site)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Crawl-delay (optional, be respectful)
+Crawl-delay: 10
