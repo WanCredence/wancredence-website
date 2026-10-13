@@ -10,18 +10,6 @@ export default defineConfig({
     minify: 'esbuild',
     cssCodeSplit: true,
     cssMinify: 'esbuild',
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'vendor'
-            }
-            return 'vendor'
-          }
-        },
-      },
-    },
   },
   server: {
     port: 3000,

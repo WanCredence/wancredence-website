@@ -1,25 +1,20 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Layout } from './components/layout/Layout'
-import { HomePage } from './pages/HomePage'
-import { ServicesPage } from './pages/ServicesPage'
-import { WorkPage } from './pages/WorkPage'
-import { AboutPage } from './pages/AboutPage'
-import { ContactPage } from './pages/ContactPage'
+import { Header } from './components/layout/Header'
+import { Footer } from './components/layout/Footer'
+import { Hero } from './components/sections/Hero'
+import { Services } from './components/sections/Services'
+import { Contact } from './components/sections/Contact'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="work" element={<WorkPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Header />
+      <main id="main-content">
+        <Hero />
+        <Services />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   )
 }
 

@@ -1,49 +1,120 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Logo } from '../ui/Logo'
 
 const navigation = [
-  { name: 'Services', href: '/services' },
-  { name: 'Work', href: '/work' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Services', href: '#services' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 export function Header() {
-  const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('keydown', onKeydown)
+    return () => document.removeEventListener('keydown', onKeydown)
+  }, [menuOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200">
-      <nav className="container" aria-label="Main navigation">
-        <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-neutral-950 font-bold text-xl" aria-label="WanCredence Home">
-            <svg className="h-8 w-8 text-brand-600" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect width="32" height="32" rx="8" fill="currentColor" />
-              <path d="M8 16L14 22L24 10" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span>WanCredence</span>
-          </Link>
+    <header className="sticky top-0 z-50 bg-white border-b border-neutral-200">
+      <div className="container flex h-16 items-center justify-between">
+        <a
+          href="#hero"
+          className="flex items-center gap-2 text-neutral-950 font-bold text-xl"
+          aria-label="WanCredence Home"
+          onClick={() => setMenuOpen(false)}
+        >
+          <span className="text-brand-600">
+            <Logo />
+          </span>
+          <span>WanCredence</span>
+        </a>
 
-          <div className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+            >
+              {item.name}
+            </a>
+          ))}
+          <a
+            href="mailto:wancredence@gmail.com?subject=Project inquiry"
+            className="btn btn-primary"
+          >
+            Discuss a project
+          </a>
+        </nav>
+
+        <div className="md:hidden">
+          <button
+            type="button"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="inline-flex items-center justify-center rounded-lg p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              {menuOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden border-t border-neutral-200"
+          aria-label="Mobile navigation"
+        >
+          <nav className="container flex flex-col gap-4 py-4">
             {navigation.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors duration-200 ${location.pathname === item.href ? 'text-brand-600' : 'text-neutral-600 hover:text-neutral-900'}`}
+                href={item.href}
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+                onClick={() => setMenuOpen(false)}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link to="/contact" className="hidden sm:inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-neutral-600 transition-colors duration-200 hover:bg-neutral-100 hover:text-neutral-900">
-              Get in touch
-            </Link>
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 shadow-sm hover:shadow-md">
-              Start a project
-            </Link>
-          </div>
+            <a
+              href="mailto:wancredence@gmail.com?subject=Project inquiry"
+              className="btn btn-primary justify-center"
+              onClick={() => setMenuOpen(false)}
+            >
+              Discuss a project
+            </a>
+          </nav>
         </div>
-      </nav>
+      )}
     </header>
   )
 }
