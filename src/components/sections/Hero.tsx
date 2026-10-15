@@ -4,10 +4,10 @@ export function Hero() {
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h1 id="hero-heading" className="heading-1 text-balance">
-            We build software for businesses.
+            We build software that solves real business problems.
           </h1>
           <p className="mt-6 body-lg text-neutral-600 text-balance">
-            Websites, web applications, and practical software solutions tailored to your needs.
+            Business websites, web applications, mobile apps, and practical AI solutions tailored to your needs.
           </p>
           <div className="mt-10">
             <a

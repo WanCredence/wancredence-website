@@ -28,9 +28,8 @@ export function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <span className="text-brand-600">
-            <Logo />
+            <Logo className="h-32 w-auto" />
           </span>
-          <span>WanCredence</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">

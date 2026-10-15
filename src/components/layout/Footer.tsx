@@ -8,13 +8,12 @@ export function Footer() {
       <div className="container flex flex-col items-center gap-4 py-8 text-sm text-neutral-600">
         <div className="flex items-center gap-2 text-neutral-950 font-bold">
           <span className="text-brand-600">
-            <Logo />
+            <Logo className="h-28 w-auto" />
           </span>
-          <span>WanCredence</span>
         </div>
         <a
           href="mailto:wancredence@gmail.com"
-          className="text-neutral-900 hover:text-brand-600 transition-colors"
+          className="text-brand-500 hover:text-brand-600 transition-colors"
           aria-label="Email wancredence at gmail dot com"
         >
           wancredence@gmail.com

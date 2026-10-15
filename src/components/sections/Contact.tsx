@@ -12,7 +12,7 @@ export function Contact() {
           <div className="mt-8">
             <a
               href="mailto:wancredence@gmail.com"
-              className="inline-block text-2xl sm:text-3xl font-medium text-neutral-900 break-all hover:text-brand-600 transition-colors"
+              className="inline-block text-2xl sm:text-3xl font-medium text-brand-500 break-all hover:text-brand-600 transition-colors"
               aria-label="Email wancredence at gmail dot com"
             >
               wancredence@gmail.com
