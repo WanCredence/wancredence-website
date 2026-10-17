@@ -1,5 +1,6 @@
 import { services } from '../../data/services'
 import { serviceIcons } from '../ui/serviceIcons'
+import { ThreeDIcon } from '../ui/ThreeDIcon'
 
 export function Services() {
   return (
@@ -17,13 +18,12 @@ export function Services() {
             return (
               <article
                 key={service.id}
-                className="h-full bg-white border border-neutral-200 rounded-xl p-8 text-center"
+                className="h-full bg-white border border-neutral-200 rounded-xl p-8 flex flex-col items-center justify-center text-center transition-shadow duration-300 hover:shadow-lg"
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-brand-50 text-brand-600 mb-6">
-                  {Icon ? <Icon className="h-6 w-6" /> : null}
-                </div>
-                <h3 className="heading-3 mb-3">{service.name}</h3>
-                <p className="body text-neutral-600">{service.shortDescription}</p>
+                <ThreeDIcon className="mb-6">
+                  {Icon ? <Icon className="h-6 w-6 text-white" /> : null}
+                </ThreeDIcon>
+                <h3 className="heading-3">{service.name}</h3>
               </article>
             )
           })}
