@@ -28,7 +28,7 @@ export function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <span className="text-brand-600">
-            <Logo className="h-32 w-auto" />
+            <Logo className="h-24 w-auto" />
           </span>
         </a>
 
