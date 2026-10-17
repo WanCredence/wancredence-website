@@ -23,7 +23,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <a
           href="#hero"
-          className="flex items-center gap-2 text-neutral-950 font-bold text-xl"
+          className="flex items-center gap-2 text-brand-600 font-bold text-xl"
           aria-label="WanCredence Home"
           onClick={() => setMenuOpen(false)}
         >
