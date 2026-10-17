@@ -17,12 +17,18 @@ export function Hero() {
           <p className="mt-6 body-lg text-neutral-600 text-balance">
             Websites, apps, custom software, and AI solutions built around your needs.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:wancredence@gmail.com?subject=Project inquiry"
               className="btn btn-primary"
             >
               Discuss a project
+            </a>
+            <a
+              href="#services"
+              className="btn btn-secondary"
+            >
+              Services
             </a>
           </div>
         </div>
