@@ -19,7 +19,7 @@ export function Header() {
   }, [menuOpen])
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-neutral-200">
+    <header className="sticky top-0 z-50 bg-white border-b border-neutral-200 relative">
       <div className="container flex h-16 items-center justify-between">
         <a
           href="#hero"
@@ -87,33 +87,33 @@ export function Header() {
         </div>
       </div>
 
-      {menuOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden border-t border-neutral-200"
-          aria-label="Mobile navigation"
-        >
-          <nav className="container flex flex-col gap-4 py-4">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
+      <div
+        id="mobile-menu"
+        className={`md:hidden absolute top-full left-0 right-0 z-50 bg-white border-t border-neutral-200 overflow-hidden transition-all duration-300 ease-in-out ${
+          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+        aria-label="Mobile navigation"
+      >
+        <nav className="container flex flex-col gap-4 py-4">
+          {navigation.map((item) => (
             <a
-              href="mailto:wancredence@gmail.com?subject=Project inquiry"
-              className="btn btn-primary justify-center"
+              key={item.name}
+              href={item.href}
+              className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              Discuss a project
+              {item.name}
             </a>
-          </nav>
-        </div>
-      )}
+          ))}
+          <a
+            href="mailto:wancredence@gmail.com?subject=Project inquiry"
+            className="btn btn-primary justify-center"
+            onClick={() => setMenuOpen(false)}
+          >
+            Discuss a project
+          </a>
+        </nav>
+      </div>
     </header>
   )
 }
