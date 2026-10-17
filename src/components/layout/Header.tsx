@@ -22,10 +22,14 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-neutral-200 relative">
       <div className="container flex h-16 items-center justify-between">
         <a
-          href="#hero"
+          href="#"
           className="flex items-center gap-2 text-brand-600 font-bold text-xl"
           aria-label="WanCredence Home"
-          onClick={() => setMenuOpen(false)}
+          onClick={(e) => {
+            e.preventDefault()
+            setMenuOpen(false)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
         >
           <span className="text-brand-600">
             <Logo className="h-24 w-auto" />
