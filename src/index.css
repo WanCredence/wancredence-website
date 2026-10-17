@@ -79,7 +79,7 @@
   .section {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    min-height: 100vh;
+    min-height: calc(100vh - 4rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,12 +90,6 @@
     .section {
       padding-top: 6rem;
       padding-bottom: 6rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .section {
-      min-height: calc(100vh - 4rem);
     }
   }
 
