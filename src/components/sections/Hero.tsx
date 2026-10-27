@@ -6,18 +6,18 @@ export function Hero() {
     <section id="hero" className="section" aria-labelledby="hero-heading">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="mb-6">
+          <div className="mb-8 sm:mb-6">
             <ThreeDIcon>
               <SoftwareIcon className="h-6 w-6 text-white" />
             </ThreeDIcon>
           </div>
-          <h1 id="hero-heading" className="heading-1 text-balance">
+          <h1 id="hero-heading" className="heading-1 text-balance mb-8 sm:mb-0">
             Software That Solves Real Problems
           </h1>
-          <p className="mt-6 body-lg text-neutral-600 text-balance">
+          <p className="mt-6 body-lg text-neutral-600 text-balance mb-8 sm:mb-0">
             Websites, apps, custom software, and AI solutions built around your needs.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-0">
             <a
               href="mailto:wancredence@gmail.com?subject=Project inquiry"
               className="btn btn-primary"
