@@ -11,6 +11,9 @@
 /favicon.png
   Cache-Control: public, max-age=31536000, immutable
 
+/logo.png
+  Cache-Control: public, max-age=31536000, immutable
+
 /og-image.svg
   Cache-Control: public, max-age=31536000, immutable
 
